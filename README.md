@@ -72,7 +72,7 @@ go run main.go
 例如，若要添加 IP 地址，您可以执行以下命令：
 
 ``` bash
-curl -X POST -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http://localhost:8080/api/banned_ips
+curl -X POST -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http://localhost:8080/v1/banned_ips
 ```
 
 
@@ -83,10 +83,10 @@ curl -X POST -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http
 例如，若要删除一个 IP 地址，您可以执行以下命令：
 
 ``` bash
-curl -X DELETE -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http://localhost:8080/api/banned-ip
+curl -X DELETE -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http://localhost:8080/v1/banned-ip
 ```
 
-- **GET /api/banned-ips**
+- **GET v1/banned-ips**
 
 查看 HAProxy 的黑名单列表
 
