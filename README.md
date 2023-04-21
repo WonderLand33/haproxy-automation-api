@@ -64,9 +64,9 @@ go run main.go
 ## API 文档
 
 
-- **POST /api/banned-ip**
+- **添加 IP**
 
-添加或删除 IP 地址到 HAProxy 的黑名单列表中，同时支持对 HAProxy 进行重启。
+添加 IP 地址到 HAProxy 的黑名单列表中，同时支持对 HAProxy 进行重启。
 
 
 例如，若要添加 IP 地址，您可以执行以下命令：
@@ -76,7 +76,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http
 ```
 
 
-- **DELETE /api/banned-ip**
+- **删除 IP**
 
 删除 HAProxy 的黑名单列表中的 IP 地址，同时支持对 HAProxy 进行重启。请求体需要包含以下选项：
 
@@ -86,9 +86,12 @@ curl -X POST -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http
 curl -X DELETE -H "Content-Type: application/json" -d '{"IP": "192.168.1.2"}' http://localhost:8080/v1/banned-ip
 ```
 
-- **GET v1/banned-ips**
+- **查看 HAProxy 的黑名单列表**
 
 查看 HAProxy 的黑名单列表
+```bash
+curl --location --request GET 'localhost:23333/v1/banned-ips'
+```
 
 
 ## 注意事项
