@@ -49,6 +49,6 @@ func Add(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, server.Response{
-		Msg: "add ok",
+		Msg: "it works",
 	})
 }

@@ -1,10 +1,11 @@
 package api
 
 import (
-	"github.com/labstack/echo/v4"
 	"haproxy-automation-api/internal/pkg/haproxy"
 	"haproxy-automation-api/internal/pkg/server"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
 func List(c echo.Context) error {
@@ -17,8 +18,8 @@ func List(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, server.Response{
 		Data: map[string]interface{}{
-			"ips": res,
+			"ips": res.List(),
 		},
-		Msg: "list ok",
+		Msg: "it works",
 	})
 }

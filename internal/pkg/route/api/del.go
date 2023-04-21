@@ -1,11 +1,12 @@
 package api
 
 import (
-	"github.com/labstack/echo/v4"
 	"haproxy-automation-api/internal/pkg/haproxy"
 	"haproxy-automation-api/internal/pkg/server"
 	"net/http"
 	"strings"
+
+	"github.com/labstack/echo/v4"
 )
 
 type DelRequest struct {
@@ -48,6 +49,6 @@ func Del(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, server.Response{
-		Msg: "del ok",
+		Msg: "it works",
 	})
 }

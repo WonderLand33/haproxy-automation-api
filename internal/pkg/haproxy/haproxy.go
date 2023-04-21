@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
 	"strings"
 
 	"github.com/scylladb/go-set"
@@ -16,11 +17,11 @@ var (
 
 // 注意：本地若没有安装haproxy的话，请注释该方法。
 func Reload() error {
-	// cmd := exec.Command("systemctl", "reload", "haproxy")
-	// err := cmd.Run()
-	// if err != nil {
-	// 	return fmt.Errorf("reload haproxy 出错: %w", err)
-	// }
+	cmd := exec.Command("systemctl", "reload", "haproxy")
+	err := cmd.Run()
+	if err != nil {
+		return fmt.Errorf("reload haproxy 出错: %w", err)
+	}
 	return nil
 }
 
