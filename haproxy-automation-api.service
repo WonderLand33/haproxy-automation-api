@@ -1,0 +1,24 @@
+[Unit]
+Description=haproxy-automation-api
+Wants=network-online.target data.mount
+After=network-online.target data.mount
+
+[Service]
+
+WorkingDirectory=/opt/haproxy-automation-api
+
+ExecStart=/opt/haproxy-automation-api/haproxy-automation-api-linux-x86 --addr 127.0.0.1:23333
+
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+RestartSec=5
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+Delegate=yes
+KillMode=process
+CPUQuota=100%
+MemoryLimit=128M
+
+[Install]
+WantedBy=multi-user.target
